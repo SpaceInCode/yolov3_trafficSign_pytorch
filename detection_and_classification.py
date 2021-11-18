@@ -1,3 +1,4 @@
+# %%
 from __future__ import division
 
 from models import *
@@ -14,6 +15,7 @@ from PIL import Image
 
 import torch
 from torch.autograd import Variable
+import torch.nn as nn
 from torch.utils.data import DataLoader
 import torch.nn.functional as F
 
@@ -37,10 +39,11 @@ from ALL_sign_data.resnet import ResNet18
 
 import json
 
-
-os.environ['CUDA_VISIBLE_DEVICES']='3'
+os.environ['CUDA_VISIBLE_DEVICES']='0'
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+torch.cuda.get_device_name()
 
+# %%
 
 sign_classes = 115
 # classes_weights_path = "ALL_sign_data/model_acc_90__epoch_4.pt"
@@ -136,7 +139,8 @@ if __name__ == "__main__":
     # "/headless/Desktop/yzn_file/DataSetsH/gangjinDataSet/test_dataset/",  
     # "/headless/Desktop/yzn_file/DataSetsH/GTSDB/FullIJCNN2013",
     # "/headless/Desktop/yzn_file/DataSetsH/httpcvrr.ucsd.eduLISAlisa-traffic-sign-dataset.html/signDatabasePublicFramesOnly/aiua120306-1/frameAnnotations-DataLog02142012_003_external_camera.avi_annotations/",
-    "/headless/Desktop/yzn_file/DataSetsH/Tinghua100K/data_all/train/",
+    # "/headless/Desktop/yzn_file/DataSetsH/Tinghua100K/data_all/train/",
+    "/Grade 4/Machine Learning/Code/TSD7/yolov3_trafficSign_pytorch/image_for_detect/Tinghua100K/",
     # "/headless/Desktop/yzn_file/DataSetsH/Tinghua100K/data_all/test/",
     # "/headless/Desktop/yzn_file/DataSetsH/Tinghua100K/data_all/other/",
     # "/headless/Desktop/yzn_file/DataSetsH/VOC/VOCdevkit/VOC2012/JPEGImages/",
