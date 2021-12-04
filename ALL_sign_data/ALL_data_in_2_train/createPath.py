@@ -13,7 +13,7 @@ f_types.close()
 f = open("info.txt", "w")
 # root = os.getcwd()
 # root = './all_crop_data'
-root = "TSD7/yolov3_trafficSign_pytorch/ALL_sign_data/ALL_data_in_2_train/all_crop_data"
+root = "/Grade 4/Machine Learning/Code/TSD7/yolov3_trafficSign_pytorch/ALL_sign_data/ALL_data_in_2_train/all_crop_data"
 
 for dr in tqdm(dirs):
     names = os.listdir("all_crop_data/" + dr)

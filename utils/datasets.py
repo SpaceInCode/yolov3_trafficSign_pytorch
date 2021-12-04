@@ -34,8 +34,6 @@ def pad_to_square(img, pad_value):
     return img, pad
 
 
- 
-
 def show_img_target(img, targets):
     c, h, w = img.shape
     transf_img = img.squeeze(0).permute(1, 2, 0)
