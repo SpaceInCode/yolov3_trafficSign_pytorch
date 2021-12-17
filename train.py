@@ -22,8 +22,8 @@ from torchvision import transforms
 from torch.autograd import Variable
 import torch.optim as optim
 
-from tensorboardX import SummaryWriter
 
+from tensorboardX import SummaryWriter
 
 
 import os
