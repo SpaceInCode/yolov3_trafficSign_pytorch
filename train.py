@@ -73,8 +73,6 @@ if __name__ == "__main__":
         # model.cuda()
     model.to(device)
 
-
-
     model.apply(weights_init_normal)
 
     # If specified we start from checkpoint
