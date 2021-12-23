@@ -6,7 +6,6 @@ import cv2
 import anno_func
 
 
-
 datadir = "../data/"
 filedir = datadir + "annotations.json"
 
@@ -21,9 +20,9 @@ result_anno_file = "./../../results/Tinghua100K_result_for_test.json"
 
 
 results_annos = json.loads(open(result_anno_file).read())
-sm = anno_func.eval_annos(annos, results_annos, iou=0.5, types=anno_func.type45, check_type=True)
+sm = anno_func.eval_annos(annos, results_annos, iou=0.5,
+                          types=anno_func.type45, check_type=True)
 # print( sm['report'])
-
 
 
 # import sys
@@ -57,7 +56,7 @@ sm = anno_func.eval_annos(annos, results_annos, iou=0.5, types=anno_func.type45,
 #     #acc2, recs2 = get_acc_res(results_annos2, minboxsize=l, maxboxsize=r)
 #     #ac_rc.append([acc1, recs1, acc2, recs2])
 #     ac_rc.append([acc1, recs1])
-    
+
 #     pl.figure()
 #     pl.plot(acc1, recs1, label='ours')
 #     #pl.plot(acc2, recs2, label='fast-rcnn')
@@ -70,24 +69,23 @@ sm = anno_func.eval_annos(annos, results_annos, iou=0.5, types=anno_func.type45,
 # #_ = pl.hist(scs, bins=100)
 
 
-
-
 test_annos = results_annos
-minscore=40
+minscore = 40
 
 sm = anno_func.eval_annos(annos, test_annos, iou=0.5, check_type=True, types=anno_func.type45,
-                         minboxsize=0,maxboxsize=400,minscore=minscore)
+                          minboxsize=0, maxboxsize=400, minscore=minscore)
 print(sm['report'])
 sm = anno_func.eval_annos(annos, test_annos, iou=0.5, check_type=True, types=anno_func.type45,
-                         minboxsize=0,maxboxsize=32,minscore=minscore)
+                          minboxsize=0, maxboxsize=32, minscore=minscore)
 print(sm['report'])
 sm = anno_func.eval_annos(annos, test_annos, iou=0.5, check_type=True, types=anno_func.type45,
-                         minboxsize=32,maxboxsize=96,minscore=minscore)
+                          minboxsize=32, maxboxsize=96, minscore=minscore)
 print(sm['report'])
 sm = anno_func.eval_annos(annos, test_annos, iou=0.5, check_type=True, types=anno_func.type45,
-                         minboxsize=96,maxboxsize=400,minscore=minscore)
+                          minboxsize=96, maxboxsize=400, minscore=minscore)
 print(sm['report'])
 
 for tp in anno_func.type45:
-    sm = anno_func.eval_annos(annos, test_annos, iou=0.5, check_type=True, types=[tp],minscore=minscore)
+    sm = anno_func.eval_annos(annos, test_annos, iou=0.5, check_type=True, types=[
+                              tp], minscore=minscore)
     print(sm['report'])
