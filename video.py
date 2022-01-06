@@ -5,15 +5,24 @@ from sklearn.preprocessing import normalize
 import matplotlib.pyplot as plt
 from detection_and_classification import *
 
-cap=cv2.VideoCapture('C:\\Grade 4\\Machine Learning\\Code\\TSD7\\yolov3_trafficSign_pytorch\\video\\road_video.MOV')
+cap=cv2.VideoCapture(
+    # 'C:\\Grade 4\\Machine Learning\\Code\\TSD7\\yolov3_trafficSign_pytorch\\video\\road_video.MOV',
+    # 'C:\\Grade 4\\Machine Learning\\Code\\TSD7\\yolov3_trafficSign_pytorch\\video\\video1.mp4',
+    # 'C:\\Grade 4\\Machine Learning\\Code\\TSD7\\yolov3_trafficSign_pytorch\\video\\video2.mp4',
+    'C:\\Grade 4\\Machine Learning\\Code\\TSD7\\yolov3_trafficSign_pytorch\\video\\video3.mp4',
+    )
 fps=cap.get(cv2.CAP_PROP_FPS)
 size=(int(cap.get(cv2.CAP_PROP_FRAME_WIDTH)),
         int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT)))
 
-videoWriter=cv2.VideoWriter('C:\\Grade 4\\Machine Learning\\Code\\TSD7\\yolov3_trafficSign_pytorch\\video\\output.mp4',
-                cv2.VideoWriter_fourcc(*'mp4v'),(fps/20),
-                size,
-                # (480,640)
+videoWriter=cv2.VideoWriter(
+    # 'C:\\Grade 4\\Machine Learning\\Code\\TSD7\\yolov3_trafficSign_pytorch\\video\\output.mp4',
+    # 'C:\\Grade 4\\Machine Learning\\Code\\TSD7\\yolov3_trafficSign_pytorch\\video\\output1.mp4',
+    # 'C:\\Grade 4\\Machine Learning\\Code\\TSD7\\yolov3_trafficSign_pytorch\\video\\output2.mp4',
+    'C:\\Grade 4\\Machine Learning\\Code\\TSD7\\yolov3_trafficSign_pytorch\\video\\output3.mp4',
+                cv2.VideoWriter_fourcc(*'mp4v'),(fps),
+                # size,
+                (640,480)
                 )
 
 def segment():
@@ -36,10 +45,10 @@ def segment():
 
         # centers = np.uint8(centers)
         # segment_image = centers[labels.flatten()]
-        segment_image2= segment_image.reshape(frame.shape)
+        # segment_image2= segment_image.reshape(frame.shape)
         
 
-        videoWriter.write(segment_image2)
+        videoWriter.write(segment_image)
 
     cap.release()
     videoWriter.release()
